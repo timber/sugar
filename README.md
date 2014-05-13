@@ -32,7 +32,7 @@ Take a string with @handles and #hashTags and make them links:
 
 Outputs...
 
-```php
+```html
 You should follow <a href="http://twitter.com/timberwp" target="_blank">@TimberWP</a>
 if you love <a href="http://search.twitter.com/search?q=wordpress" target="_blank">#wordpress</a>
 ```
