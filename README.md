@@ -9,7 +9,7 @@ Throw some dummy lorem ipsum where you need it...
 ```php
 <h1>Some title</h1>
 <div class="body">
-	{{dummy(500)}}
+	{{dummy(500)|wpautop}}
 </div>
 ```
 ... this outputs 500 words of random lorem ipsum.
