@@ -19,3 +19,19 @@ Throw some dummy lorem ipsum where you need it...
 <h1>{{post.title|dummy(15)}}</h1>
 ```
 ... this outputs 15 words of lorem ipsum _if_ post.title is empty
+
+### `twitterify`
+
+Take a string with @handles and #hashTags and make them links:
+
+```php
+<div class="my-tweet">
+{{post.tweet|twitterify}}
+</div>
+```
+
+Outputs...
+
+```php
+You should follow <a href="http://twitter.com/timberwp" target="_blank">@TimberWP</a> if you love <a href="http://search.twitter.com/search?q=wordpress" target="_blank">#wordpress</a>
+```
