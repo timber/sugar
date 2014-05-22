@@ -26,7 +26,7 @@ Take a string with @handles and #hashTags and make them links:
 
 ```php
 <div class="my-tweet">
-{{post.tweet|twitterify}}
+{{tweet.content|twitterify}}
 </div>
 ```
 
