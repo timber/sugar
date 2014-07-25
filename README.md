@@ -6,7 +6,7 @@ Some bonus functionality for Timber. Install it in `wp-content/plugins` and acti
 ### `dummy`
 
 Throw some dummy lorem ipsum where you need it...
-```php
+```html+django
 <h1>Some title</h1>
 <div class="body">
 	{{dummy(500)|wpautop}}
@@ -15,7 +15,7 @@ Throw some dummy lorem ipsum where you need it...
 ... this outputs 500 words of random lorem ipsum.
 
 ###### Use it as a filter
-```php
+```html+django
 <h1>{{post.title|dummy(15)}}</h1>
 ```
 ... this outputs 15 words of lorem ipsum _if_ post.title is empty
@@ -24,7 +24,7 @@ Throw some dummy lorem ipsum where you need it...
 
 Take a string with @handles and #hashTags and make them links:
 
-```php
+```html+django
 <div class="my-tweet">
 {{tweet.content|twitterify}}
 </div>
