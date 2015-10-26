@@ -52,7 +52,7 @@ Author URI: http://upstatement.com/
 			$pattern .= '[a-wyz][a-z](fo|g|l|m|mes|o|op|pa|ro|seum|t|u|v|z)?)#i';
 			$ret = preg_replace($pattern, '<a href="mailto:\\1">\\1</a>', $ret);
 			$ret = preg_replace("/\B@(\w+)/", " <a href=\"http://www.twitter.com/\\1\" target=\"_blank\">@\\1</a>", $ret);
-			$ret = preg_replace("/\B#(\w+)/", " <a href=\"http://search.twitter.com/search?q=\\1\" target=\"_blank\">#\\1</a>", $ret);
+			$ret = preg_replace("/\B#(\w+)/", "<a href=\"http://twitter.com/hashtag/\\1?src=hash\" target=\"_blank\">#\\1</a>", $ret);
 			return $ret;
 		}
 
