@@ -30,7 +30,8 @@
   "require": {
   },
   "require-dev": {
-    "timber/timber" : "1.*"
+    "timber/timber" : "1.*",
+    "satooshi/php-coveralls": "1.0.*"
   },
   "repositories": [
     {
