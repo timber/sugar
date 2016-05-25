@@ -16,6 +16,7 @@ function _manually_load_plugin() {
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
 require $_tests_dir . '/includes/bootstrap.php';
+require __DIR__.'/../timber-sugar.php';
 
 
 if ( !function_exists('is_post_type_viewable') ) {

@@ -28,21 +28,14 @@ Author URI: http://upstatement.com/
 			return $text;
 		}
 
-		function apply_dummy($words){
+		function apply_dummy($word_count){
 			$text = file_get_contents(__DIR__.'/assets/lorem-ipsum.txt');
-			$starting_position = rand(0, strlen($text));
-			$leading_text = substr( $text , $starting_position);
-			$text = ucfirst(trim($leading_text)) . ' ' .$text;
-			$text = self::simple_truncate($text, $words);
-			return $text;
-		}
-
-		private function simple_truncate($phrase, $max_words){
-			$phrase_array = explode(' ',$phrase);
-			if(count($phrase_array) > $max_words && $max_words > 0){
-				$phrase = implode(' ',array_slice($phrase_array, 0, $max_words));
-			}
-			return $phrase;
+			$words = explode(' ', $text);
+			$starting_word = rand(0, count($words));
+			$more_words = array_merge($words, $words);
+			$resulting_words = array_slice($more_words, $starting_word, $word_count);
+			$text = implode(' ', $resulting_words);
+			return ucfirst($text);
 		}
 
 		public static function twitterify($ret) {
@@ -51,8 +44,8 @@ Author URI: http://upstatement.com/
 			$pattern = '#([0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.';
 			$pattern .= '[a-wyz][a-z](fo|g|l|m|mes|o|op|pa|ro|seum|t|u|v|z)?)#i';
 			$ret = preg_replace($pattern, '<a href="mailto:\\1">\\1</a>', $ret);
-			$ret = preg_replace("/\B@(\w+)/", " <a href=\"http://www.twitter.com/\\1\" target=\"_blank\">@\\1</a>", $ret);
-			$ret = preg_replace("/\B#(\w+)/", "<a href=\"http://twitter.com/hashtag/\\1?src=hash\" target=\"_blank\">#\\1</a>", $ret);
+			$ret = preg_replace("/\B@(\w+)/", " <a href=\"https://www.twitter.com/\\1\" target=\"_blank\">@\\1</a>", $ret);
+			$ret = preg_replace("/\B#(\w+)/", "<a href=\"https://twitter.com/hashtag/\\1?src=hash\" target=\"_blank\">#\\1</a>", $ret);
 			return $ret;
 		}
 
