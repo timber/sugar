@@ -21,20 +21,21 @@ Author URI: http://upstatement.com/
 			});
 		}
 
-		function apply_dummy_filter($text, $words){
+		static function apply_dummy_filter($text, $words){
 			if (!strlen(trim($text))){
 				return self::apply_dummy($words);
 			}
 			return $text;
 		}
 
-		function apply_dummy($word_count){
+		static function apply_dummy($word_count){
 			$text = file_get_contents(__DIR__.'/assets/lorem-ipsum.txt');
 			$words = explode(' ', $text);
 			$starting_word = rand(0, count($words));
 			$more_words = array_merge($words, $words);
 			$resulting_words = array_slice($more_words, $starting_word, $word_count);
 			$text = implode(' ', $resulting_words);
+			error_log('words='.$text.'/');
 			return ucfirst($text);
 		}
 
