@@ -1,0 +1,42 @@
+{
+  "name": "timber/sugar",
+  "type": "library",
+  "description": "Add-ons to Timber",
+  "keywords": [
+    "timber",
+    "twig",
+    "themes",
+    "templating"
+  ],
+  "homepage": "http://timber.upstatement.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jared Novack",
+      "email": "jared@upstatement.com",
+      "homepage": "http://upstatement.com"
+    },
+    {
+      "name": "Connor J. Burton",
+      "email" : "connorjburton@gmail.com",
+      "homepage": "http://connorburton.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/timber/sugar/issues",
+    "wiki": "https://github.com/timber/sugar/wiki",
+    "source": "https://github.com/timber/sugar"
+  },
+  "require": {
+  },
+  "require-dev": {
+    "timber/timber" : "1.*",
+    "satooshi/php-coveralls": "1.0.*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ]
+}
