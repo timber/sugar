@@ -20,10 +20,11 @@ before_script:
     - composer install --prefer-source
 
 script:
-    - mkdir -p build/logs; phpunit --coverage-clover build/logs/clover.xml;
+    - if [ "$TRAVIS_BRANCH" == "master" ]; then mkdir -p build/logs; phpunit --coverage-clover build/logs/clover.xml; fi
+    - if [ "$TRAVIS_BRANCH" != "master" ]; then phpunit -c bin/phpunit-nocover.xml; fi
 
 after_script:
-    - php vendor/bin/coveralls -v;
+    - if [ "$TRAVIS_BRANCH" == "master" ]; then php vendor/bin/coveralls -v; fi
 
 after_success:
-    - coveralls;
+    - if [ "$TRAVIS_BRANCH" == "master" ]; then coveralls; fi

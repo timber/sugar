@@ -12,11 +12,11 @@ Author URI: http://upstatement.com/
 
 		function __construct(){
 			add_filter('get_twig', function($twig){
-				$twig->addFilter('dummy', new Twig_Filter_Function(array($this, 'apply_dummy_filter')));
-				$twig->addFunction(new Twig_SimpleFunction('dummy', array(&$this, 'apply_dummy')));
+				$twig->addFilter('dummy', new Twig_Filter_Function(array(__CLASS__, 'apply_dummy_filter')));
+				$twig->addFunction(new Twig_SimpleFunction('dummy', array(__CLASS__, 'apply_dummy')));
 				
-				$twig->addFilter('twitterify', new Twig_Filter_Function(array($this, 'twitterify')));
-				$twig->addFilter('twitterfy', new Twig_Filter_Function(array($this, 'twitterify')));
+				$twig->addFilter('twitterify', new Twig_Filter_Function(array(__CLASS__, 'twitterify')));
+				$twig->addFilter('twitterfy', new Twig_Filter_Function(array(__CLASS__, 'twitterify')));
 				return $twig;
 			});
 		}
