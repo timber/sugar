@@ -11,7 +11,7 @@ Author URI: http://upstatement.com/
 	class TimberSugar {
 
 		function __construct(){
-			add_filter('get_twig', function($twig){
+			add_filter('get_twig', function( $twig ){
 				$twig->addFilter('dummy', new Twig_Filter_Function(array(__CLASS__, 'apply_dummy_filter')));
 				$twig->addFunction(new Twig_SimpleFunction('dummy', array(__CLASS__, 'apply_dummy')));
 				
@@ -21,21 +21,20 @@ Author URI: http://upstatement.com/
 			});
 		}
 
-		static function apply_dummy_filter($text, $words){
+		static function apply_dummy_filter( $text, $words = 100 ){
 			if (!strlen(trim($text))){
 				return self::apply_dummy($words);
 			}
 			return $text;
 		}
 
-		static function apply_dummy($word_count){
+		static function apply_dummy( $word_count = 100 ){
 			$text = file_get_contents(__DIR__.'/assets/lorem-ipsum.txt');
 			$words = explode(' ', $text);
 			$starting_word = rand(0, count($words));
 			$more_words = array_merge($words, $words);
 			$resulting_words = array_slice($more_words, $starting_word, $word_count);
 			$text = implode(' ', $resulting_words);
-			error_log('words='.$text.'/');
 			return ucfirst($text);
 		}
 
