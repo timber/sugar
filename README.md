@@ -1,5 +1,7 @@
-Timber Sugar
-============
+# Timber Sugar
+
+[![Build Status](https://img.shields.io/travis/timber/sugar/master.svg?style=flat-square)](https://travis-ci.org/timber/sugar)
+[![Coverage Status](https://img.shields.io/coveralls/timber/sugar.svg?style=flat-square)](https://coveralls.io/r/timber/sugar?branch=master)
 
 Some bonus functionality for Timber. Install it in `wp-content/plugins` and activate via the WordPress admin. Featuring...
 
